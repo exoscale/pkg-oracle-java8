@@ -29,6 +29,7 @@ javaname	:= $(shell echo $(word 2, $(dirparts)) | sed 's/[0-9.]*$$//')
 RELEASE		:= $(shell echo $(word 2, $(dirparts)) | sed 's/^[[:alpha:]]*//')
 PRODUCT		:= $(javaname)$(RELEASE)
 basename	:= $(VENDOR)-$(PRODUCT)
+debversion	:= $(shell dpkg-parsechangelog -S version)~$(shell lsb_release -sc)0+exo1
 dirpartsv	:= $(shell dpkg-parsechangelog | sed -ne '/Version:/ s,Version: \(.*\),\1,p' | tr '.-' ' ')
 version		:= $(word 1, $(dirpartsv))
 releng_ver	:= $(word 2, $(dirpartsv))
@@ -71,6 +72,9 @@ get-orig-source:
 	done
 	echo "28a00b9400b6913563553e09e8024c286b506d8523334c93ddec6c9ec7e9d346  jdk-$(version)u$(releng_ver)-linux-x64.tar.gz" | sha256sum -c
 	echo "0a4310d31246924d5c3cd161b9da7f446acef373e6484452c80de8d8519f5a33  jdk-$(version)u$(releng_ver)-linux-i586.tar.gz" | sha256sum -c
+
+prepare:
+	./prepare.sh
 
 info:
 	@echo Build information
@@ -157,7 +161,7 @@ control-stamp: debian/control packaging-files
 build: build-arch build-indep
 build-arch: build-stamp
 build-indep: build-stamp
-build-stamp: info control-stamp
+build-stamp: prepare info control-stamp
 	touch build-stamp
 
 debian/control: debian/control.in debian/rules
@@ -623,7 +627,7 @@ binary-indep:	$(binary_indep_targets)
 	dh_compress -Xdemo -Xsample -X.html
 	dh_fixperms
 	dh_installdeb
-	dh_gencontrol
+	dh_gencontrol -- -v$(debversion)
 	dh_md5sums
 	dh_builddeb
 
@@ -640,7 +644,7 @@ binary-arch:	$(binary_arch_targets)
 	dh_compress -Xdemo -Xexamples -Xsample -X.html -X.pdf
 	dh_fixperms
 	dh_installdeb
-	dh_gencontrol
+	dh_gencontrol -- -v$(debversion)
 	dh_md5sums
 	dh_builddeb
 
