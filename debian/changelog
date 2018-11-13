@@ -1,3 +1,46 @@
+oracle-java8 (8.192-1) stable; urgency=medium
+
+  * New Java release
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Fri, 19 Oct 2018 14:14:38 +0200
+
+oracle-java8 (8.191-1) stable; urgency=high
+
+  * SECURITY UPDATE:
+    - (CVE-2018-3183): Unrestricted access to scripting engine (Scripting)
+    - (CVE-2018-3209): unspecified vulnerability fixed in 8u191 (JavaFX)
+    - (CVE-2018-3169): Improper field access checks (Hotspot)
+    - (CVE-2018-3149): Incomplete enforcement of the trustURLCodebase
+                       restriction (JNDI)
+    - (CVE-2018-3211): unspecified vulnerability fixed in 8u191 (Serviceability)
+    - (CVE-2018-3180): Missing endpoint identification algorithm check during
+                       TLS session resumption (JSSE)
+    - (CVE-2018-3214): Infinite loop in RIFF format reader (Sound)
+    - (CVE-2018-13785): libpng: Integer overflow and resultant divide-by-zero
+                        in pngrutil.c:png_check_chunk_length() allows for
+                        denial of service (Deployment)
+    - (CVE-2018-3136): Incorrect handling of unsigned attributes in singed Jar
+                       manifests (Security)
+    - (CVE-2018-3139): Leak of sensitive header data via HTTP redirect
+                       (Networking)
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Fri, 19 Oct 2018 13:55:43 +0200
+
+oracle-java8 (8.181-1) stable; urgency=high
+
+  * JavaDB was removed.
+  * SECURITY UPDATE:
+    - (CVE-2018-2938): unspecified vulnerability fixed in 8u181 (Java DB)
+    - (CVE-2018-2964): unspecified vulnerability fixed in 8u181 (Deployment)
+    - (CVE-2018-2941): unspecified vulnerability fixed in 8u181 (JavaFX)
+    - (CVE-2018-2942): unspecified vulnerability fixed in 8u181 (Windows DLL)
+    - (CVE-2018-2973): unspecified vulnerability fixed in 8u181 (JSSE)
+    - (CVE-2018-2940): unspecified vulnerability fixed in 8u181 (Libraries)
+    - (CVE-2018-2952): insufficient index validation in PatternSyntaxException
+                       getMessage() (Concurrency)
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Wed, 18 Jul 2018 15:26:22 +0200
+
 oracle-java8 (8.172-1) stable; urgency=medium
 
   * New Java release
