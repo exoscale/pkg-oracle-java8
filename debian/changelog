@@ -1,3 +1,9 @@
+oracle-java8 (8.212-1) stable; urgency=medium
+
+  * New Java release
+
+ -- Jorge Espada <jorge@exoscale.ch>  Tue, 09 Jul 2013 11:21:44 +0000
+
 oracle-java8 (8.192-1) stable; urgency=medium
 
   * New Java release
