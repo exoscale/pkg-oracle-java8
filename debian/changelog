@@ -1,3 +1,9 @@
+oracle-java8 (8.251-1) stable; urgency=medium
+
+  * New Java release, 8.251
+
+ -- Alexandros Afentoulis <alexandros.afentoulis@exoscale.ch>  Wed, 29 Apr 2020 15:25:48 +0300
+
 oracle-java8 (8.192-1) stable; urgency=medium
 
   * New Java release
