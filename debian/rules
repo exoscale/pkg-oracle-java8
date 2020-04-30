@@ -67,7 +67,7 @@ lintian_overrides	:= usr/share/lintian/overrides
 
 get-orig-source:
 	@for arch in x64 i586; do \
-	  curl -fL --retry 3 --retry-delay 3 -O --header 'Cookie: oraclelicense=accept-securebackup-cookie' \
+	  curl -fL --retry 3 --retry-delay 3 -O --cookie 'oraclelicense=accept-securebackup-cookie' \
 	    http://download.oracle.com/otn-pub/java/jdk/$(version)u$(releng_ver)-b$(jdkbuild)/$(downloadhash)/jdk-$(version)u$(releng_ver)-linux-$$arch.tar.gz; \
 	done
 	echo "777a8d689e863275a647ae52cb30fd90022a3af268f34fc5b9867ce32f1b374e  jdk-$(version)u$(releng_ver)-linux-x64.tar.gz" | sha256sum -c
