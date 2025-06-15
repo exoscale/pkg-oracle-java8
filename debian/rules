@@ -626,4 +626,7 @@ binary-arch:	$(binary_arch_targets)
 
 binary: binary-arch binary-indep
 
+override_dh_builddeb:
+	dh_builddeb -- -Zxz
+
 .PHONY: binary binary-indep binary-arch build build-indep build-arch clean
